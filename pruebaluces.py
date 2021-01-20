@@ -9,4 +9,4 @@ try:
     GPIO.output(led, 0)
 finally:
        print("clean up") 
-          GPIO.cleanup() # cleanup all GPIO 
+       GPIO.cleanup() # cleanup all GPIO 
