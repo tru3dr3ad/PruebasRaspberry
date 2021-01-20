@@ -1,10 +1,10 @@
-from gpiozero import LED
-from time import sleep
-
-red = LED(17)
-
-while True:
-    red.on()
-    sleep(1)
-    red.off()
-    sleep(1)
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(18,GPIO.OUT)
+print "LED on"
+GPIO.output(18,GPIO.HIGH)
+time.sleep(1)
+print "LED off"
+GPIO.output(18,GPIO.LOW)
