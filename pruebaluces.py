@@ -1,10 +1,8 @@
 import RPi.GPIO as GPIO
-import time
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(18,GPIO.OUT)
-print("LED on")
-GPIO.output(18,GPIO.HIGH)
-time.sleep(1)
-print("LED off")
-GPIO.output(18,GPIO.LOW)
+led = 21
+GPIO.setup(led, GPIO.OUT)
+# Switch on
+GPIO.output(led, 1)
+# Switch off
+GPIO.output(led, 0)
