@@ -1,13 +1,13 @@
-import RPi.GPIO as GPIO
+from gpiozero import PWMLED
+from time import sleep
 
-try:
-    GPIO.setmode(GPIO.BCM)
-    led = 21
-    GPIO.setup(led, GPIO.OUT)
-    # Switch on
-    GPIO.output(led, 1)
-    # Switch off
-    GPIO.output(led, 0)
-finally:
-       print("clean up") 
-       GPIO.cleanup() # cleanup all GPIO 
+led = PWMLED(21)
+
+while True:
+    led.value = 0  # off
+    sleep(1)
+    led.value = 0.5  # half brightness
+    sleep(1)
+    led.value = 1  # full brightness
+    sleep(1)
+    gpiozero.clear()
