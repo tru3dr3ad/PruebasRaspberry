@@ -1,22 +1,15 @@
-import RPi.GPIO as GPIO
-import time
-GPIO.setmode(GPIO.BCM)
+from gpiozero import Button
+from signal import pause
 
-# Pin 19 will sense for button pushing
-button = 19
-GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+def say_hello():
+    print("Hello!")
 
-# The LED
-led = 21
-GPIO.setup(led, GPIO.OUT)
+def say_goodbye():
+    print("Goodbye!")
 
-while True:
-    input_state = GPIO.input(button) # Sense the button
-    if input_state == False:
-        print('Button Pressed')
-        time.sleep(0.2)
-        # Switch on LED
-        GPIO.output(led, 1)
-    else :
-        # Switch off LED
-        GPIO.output(led, 0)
+button = Button(2)
+
+button.when_pressed = say_hello
+button.when_released = say_goodbye
+
+pause()
