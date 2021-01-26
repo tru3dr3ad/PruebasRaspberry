@@ -1,36 +1,20 @@
-from gpiozero import LED
+from gpiozero import TrafficLights
 from time import sleep
-  
 
-red = LED(2)
-#amber = LED(3)
-#green = LED(4)
+lights = TrafficLights(20, 21, 16)
 
-#green.on()
-#amber.on()
-red.on()
-sleep(10)
-
+lights.green.on()
 
 while True:
-  red.on()
-#   red.on()
-#   sleep(2)
-#   red.off()
-
- #       green.on()
-   #     amber.on()
-    #    amber.off()
-  #      red.on()
-        # sleep(10)
-        # green.off()
-        # amber.on()
-        # sleep(1)
-        # amber.off()
-        # red.on()
-        # sleep(10)
-        # amber.on()
-        # sleep(1)
-        # green.on()
-        # amber.off()
-        # red.off()
+    sleep(10)
+    lights.green.off()
+    lights.amber.on()
+    sleep(1)
+    lights.amber.off()
+    lights.red.on()
+    sleep(10)
+    lights.amber.on()
+    sleep(1)
+    lights.green.on()
+    lights.amber.off()
+    lights.red.off()
